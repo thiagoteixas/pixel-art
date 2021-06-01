@@ -1,0 +1,23 @@
+.color {
+    border: 1px solid black;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+
+}
+
+#color1 {
+    background-color: #32292F;
+}
+
+#color2 {
+    background-color: #575366;
+}
+
+#color3 {
+    background-color: #6E7DAB;
+}
+
+#color4 {
+    background-color: #5762D5;
+}
