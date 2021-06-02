@@ -1,4 +1,4 @@
-function createPixelBoard() {
+window.onload = function createBoard() {
   const pixelBoard = document.querySelector('#pixel-board');
   for (let index = 0; index < 5; index += 1) {
     for (let index2 = 0; index2 < 5; index2 += 1) {
@@ -12,10 +12,30 @@ function createPixelBoard() {
       pixelBoard.appendChild(child);
     }
   }
-  const pixels = document.querySelectorAll('.pixel');
-  for (let index = 0; index < pixels.length; index += 1) {
-    console.log(pixels[index]);
-  }
+};
+
+function selectColor(event) {
+  // Retorna cor selecionada
+  const corSelecionada = event.style.color;
+  return corSelecionada;
 }
 
-window.onload = createPixelBoard;
+// Declaração das variáveis
+const button1 = document.getElementById('color1');
+const button2 = document.getElementById('color2');
+const button3 = document.getElementById('color3');
+const button4 = document.getElementById('color4');
+// const pixels = document.getElementsByClassName('pixel');
+
+// Adiciona a classe selected para button1
+button1.classList.add('selected');
+
+// Eventos de clique
+button1.addEventListener('click', selectColor);
+button2.addEventListener('click', selectColor);
+button3.addEventListener('click', selectColor);
+button4.addEventListener('click', selectColor);
+// pixels.addEventListener('click', coloringPixels(corAtual));
+
+// Atualiza corAtual quando os botões forem clicados
+// corAtual = selectColor();
