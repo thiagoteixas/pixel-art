@@ -14,10 +14,16 @@ window.onload = function createBoard() {
   }
 };
 
-function selectColor(event) {
+function selectColor(button, currentColor) {
   // Retorna cor selecionada
-  const corSelecionada = event.style.color;
-  return corSelecionada;
+  const selectedColor = button;
+  currentColor.classList.remove('selected');
+  button.classList.add('selected');
+  return selectedColor;
+}
+
+function teste(event) {
+  console.log(event.target);
 }
 
 // Declaração das variáveis
@@ -25,17 +31,39 @@ const button1 = document.getElementById('color1');
 const button2 = document.getElementById('color2');
 const button3 = document.getElementById('color3');
 const button4 = document.getElementById('color4');
-// const pixels = document.getElementsByClassName('pixel');
+const pixels = document.getElementsByClassName('pixel');
+
+console.log(pixels);
 
 // Adiciona a classe selected para button1
 button1.classList.add('selected');
 
+// Variavel corAtual
+let currentColor = document.getElementsByClassName('selected')[0];
+
 // Eventos de clique
-button1.addEventListener('click', selectColor);
-button2.addEventListener('click', selectColor);
-button3.addEventListener('click', selectColor);
-button4.addEventListener('click', selectColor);
-// pixels.addEventListener('click', coloringPixels(corAtual));
+button1.addEventListener('click', function () {
+  currentColor = selectColor(this, currentColor);
+  console.log(currentColor);
+});
+button2.addEventListener('click', function () {
+  currentColor = selectColor(this, currentColor);
+  console.log(currentColor);
+});
+button3.addEventListener('click', function () {
+  currentColor = selectColor(this, currentColor);
+  console.log(currentColor);
+});
+button4.addEventListener('click', function () {
+  currentColor = selectColor(this, currentColor);
+  console.log(currentColor);
+});
+for (let index = 0; index < pixels.length; index += 1) {
+  pixels[index].addEventListener('click', function (currentColor) {
+    pixels[index].style.backgroundColor = currentColor.style.backgroundColor;
+    console.log(pixels[index]);
+  });
+}
 
 // Atualiza corAtual quando os botões forem clicados
 // corAtual = selectColor();
