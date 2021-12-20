@@ -1,3 +1,7 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 .color {
     border: 1px solid black;
     display: inline-block;
@@ -22,7 +26,26 @@
     background-color: #5762D5;
 }
 
+#title {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#color-palette {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#other-features {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 #pixel-board {
+    margin: auto;
     width: 240px;
-    height: 1000px;
+    height: 1px;
 }

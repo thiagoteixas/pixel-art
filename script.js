@@ -24,8 +24,15 @@ function selectColor(button, currentColor) {
 }
 
 function colorPixels(event) {
-  console.log(event.target.style);
+  console.log(event.target);
   event.target.style.backgroundColor = currentRGB;
+}
+
+function resetPixels() {
+  const elements = document.getElementsByClassName('pixel');
+  for (let i = 0; i < elements.length; i += 1) {
+    elements[i].style.backgroundColor = 'white';
+  }
 }
 
 function teste(event) {
@@ -38,6 +45,7 @@ const button2 = document.getElementById('color2');
 const button3 = document.getElementById('color3');
 const button4 = document.getElementById('color4');
 const pixels = document.getElementById('pixel-board');
+const clearButton = document.getElementById('clear-board');
 
 // Cor dos botões
 const firstButtonColor = window.getComputedStyle(button1, null).getPropertyValue('background-color');
@@ -75,5 +83,4 @@ button4.addEventListener('click', function () {
 });
 pixels.addEventListener('click', colorPixels);
 
-// Atualiza corAtual quando os botões forem clicados
-// corAtual = selectColor();
+clearButton.addEventListener('click', resetPixels);
