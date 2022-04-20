@@ -17,15 +17,9 @@ window.onload = function createBoard() {
 function selectColor(button, currentColor) {
   // Retorna cor selecionada
   const selectedColor = button;
-  console.log(button);
   currentColor.classList.remove('selected');
   button.classList.add('selected');
   return selectedColor;
-}
-
-function colorPixels(event) {
-  console.log(event.target);
-  event.target.style.backgroundColor = currentRGB;
 }
 
 function resetPixels() {
@@ -35,10 +29,6 @@ function resetPixels() {
   }
 }
 
-function teste(event) {
-  console.log(event.target);
-}
-
 // Declaração das variáveis
 const button1 = document.getElementById('color1');
 const button2 = document.getElementById('color2');
@@ -46,12 +36,20 @@ const button3 = document.getElementById('color3');
 const button4 = document.getElementById('color4');
 const pixels = document.getElementById('pixel-board');
 const clearButton = document.getElementById('clear-board');
+const backgroundSwitch = document.getElementById('bg-icon');
+const body = document.getElementsByTagName('body')[0];
 
 // Cor dos botões
-const firstButtonColor = window.getComputedStyle(button1, null).getPropertyValue('background-color');
-const secondButtonColor = window.getComputedStyle(button2, null).getPropertyValue('background-color');
-const thirdButtonColor = window.getComputedStyle(button3, null).getPropertyValue('background-color');
-const fourthButtonColor = window.getComputedStyle(button4, null).getPropertyValue('background-color');
+const bg = 'background-color';
+let firstButtonColor = window.getComputedStyle(button1, null).getPropertyValue(bg);
+let secondButtonColor = window.getComputedStyle(button2, null).getPropertyValue(bg);
+let thirdButtonColor = window.getComputedStyle(button3, null).getPropertyValue(bg);
+let fourthButtonColor = window.getComputedStyle(button4, null).getPropertyValue(bg);
+
+const changeFirstColor = document.getElementById('scolor1');
+const changeSecondColor = document.getElementById('scolor2');
+const changeThirdColor = document.getElementById('scolor3');
+const changeFourthColor = document.getElementById('scolor4');
 
 // Adiciona a classe selected para button1
 button1.classList.add('selected');
@@ -60,27 +58,78 @@ button1.classList.add('selected');
 let currentColor = document.getElementsByClassName('selected')[0];
 let currentRGB = firstButtonColor;
 
+function colorPixels(event) {
+  event.target.style.backgroundColor = currentRGB;
+}
+
+function changeBackgroundColor(background) {
+  const nm = 'night-mode';
+  const dm = 'day-mode';
+
+  if (background.includes(nm)) {
+    backgroundSwitch.classList.remove(nm);
+    backgroundSwitch.classList.add(dm);
+    backgroundSwitch.src = '/icons/brightness.png';
+    body.style.backgroundColor = '#616e7c';
+  } else {
+    backgroundSwitch.classList.remove(dm);
+    backgroundSwitch.classList.add(nm);
+    backgroundSwitch.src = '/icons/night-mode.png';
+    body.style.backgroundColor = '#ffffff';
+  }
+}
+
 // Eventos de clique
 button1.addEventListener('click', function () {
   currentColor = selectColor(this, currentColor);
   currentRGB = firstButtonColor;
-  console.log(currentColor);
 });
 button2.addEventListener('click', function () {
   currentColor = selectColor(this, currentColor);
   currentRGB = secondButtonColor;
-  console.log(currentColor);
 });
 button3.addEventListener('click', function () {
   currentColor = selectColor(this, currentColor);
   currentRGB = thirdButtonColor;
-  console.log(currentColor);
 });
 button4.addEventListener('click', function () {
   currentColor = selectColor(this, currentColor);
   currentRGB = fourthButtonColor;
-  console.log(currentColor);
+});
+
+changeFirstColor.addEventListener('input', () => {
+  firstButtonColor = changeFirstColor.value;
+  button1.style.backgroundColor = firstButtonColor;
+  currentColor = document.getElementsByClassName('selected')[0];
+  currentColor = selectColor(button1, currentColor);
+  currentRGB = firstButtonColor;
+});
+changeSecondColor.addEventListener('input', () => {
+  secondButtonColor = changeSecondColor.value;
+  button2.style.backgroundColor = secondButtonColor;
+  currentColor = document.getElementsByClassName('selected')[0];
+  currentColor = selectColor(button2, currentColor);
+  currentRGB = secondButtonColor;
+});
+changeThirdColor.addEventListener('input', () => {
+  thirdButtonColor = changeThirdColor.value;
+  button3.style.backgroundColor = thirdButtonColor;
+  currentColor = document.getElementsByClassName('selected')[0];
+  currentColor = selectColor(button3, currentColor);
+  currentRGB = thirdButtonColor;
+});
+changeFourthColor.addEventListener('input', () => {
+  fourthButtonColor = changeFourthColor.value;
+  button4.style.backgroundColor = fourthButtonColor;
+  currentColor = document.getElementsByClassName('selected')[0];
+  currentColor = selectColor(button4, currentColor);
+  currentRGB = fourthButtonColor;
 });
 pixels.addEventListener('click', colorPixels);
 
 clearButton.addEventListener('click', resetPixels);
+
+backgroundSwitch.addEventListener('click', () => {
+  const currentBackground = backgroundSwitch.className;
+  changeBackgroundColor(currentBackground);
+});

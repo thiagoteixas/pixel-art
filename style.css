@@ -1,51 +1,74 @@
 body {
-    font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
 }
 
 .color {
-    border: 1px solid black;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
+  border: 1px solid black;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
 
+.background-selector {
+  max-width: 20px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.background-icon {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.light-mode {
+  background-color: white;
+}
+
+.dark-mode {
+  background-color: #616e7c;
 }
 
 #color1 {
-    background-color: black;
+  background-color: black;
 }
 
 #color2 {
-    background-color: #575366;
+  background-color: #575366;
 }
 
 #color3 {
-    background-color: #6E7DAB;
+  background-color: #6e7dab;
 }
 
 #color4 {
-    background-color: #5762D5;
+  background-color: #5762d5;
 }
 
 #title {
-    margin: auto;
-    text-align: center;
-    padding-bottom: 20px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 #color-palette {
-    margin: auto;
-    text-align: center;
-    padding-bottom: 20px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 #other-features {
-    margin: auto;
-    text-align: center;
-    padding-bottom: 20px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 #pixel-board {
-    margin: auto;
-    width: 240px;
-    height: 1px;
+  margin: auto;
+  width: 240px;
+  height: 1px;
 }
