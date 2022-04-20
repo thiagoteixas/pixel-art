@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap"
+      rel="stylesheet"
+    />
     <title>Pixels Art</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        <h1 id='title'>Paleta de Cores</h1>
+      <h1 id="title">Paleta de Cores</h1>
     </header>
     <main>
-        <section id='color-palette'>
-            <div class="color" id='color1'></div>
-            <div class="color" id='color2'></div>
-            <div class="color" id='color3'></div>
-            <div class="color" id='color4'></div>
-        </section>
-        <div id='other-features'>
-            <button id='clear-board'>Limpar</button>
-        </div>
-        <section id='pixel-board'></section>
+      <section class="background-selector">
+          <img class="background-icon night-mode" id="bg-icon" src="/icons/night-mode.png" alt="night-mode" >
+      </section>
+      <section id="color-palette">
+          <div class="color1">
+            <div class="color" id="color1"></div>
+            <div class="selector-button">
+                <input type="color" name="color1" id="scolor1" />
+            </div>
+          </div>
+          <div class="color2">
+            <div class="color" id="color2"></div>
+            <div class="selector-button">
+                <input type="color" name="color2" id="scolor2" value="#575366" />
+            </div>
+          </div>
+          <div class="color3">
+            <div class="color" id="color3"></div>
+            <div class="selector-button">
+                <input type="color" name="color3" id="scolor3" value="#6E7DAB" />
+            </div>
+          </div>
+          <div class="color4">
+            <div class="color" id="color4"></div>
+            <div class="selector-button">
+                <input type="color" name="color4" id="scolor4" value="#5762D5" />
+            </div>
+          </div>
+      </section>
+      <div id="other-features">
+        <button id="clear-board">Limpar</button>
+      </div>
+      <section id="pixel-board"></section>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
